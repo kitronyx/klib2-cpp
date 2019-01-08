@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KLib2_Cpp", "KLib2_Cpp\KLib2_Cpp.vcxproj", "{7FD42DF7-442E-479A-BA76-D0022F99702A}"
 EndProject
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "KLib2_Py", "KLib2_Py\KLib2_Py.pyproj", "{764224C3-E411-400E-8C95-70F04C2D47C6}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "openframeworksLib", "..\..\..\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj", "{5837595D-ACA9-485C-8E76-729040CE4B0B}"
 EndProject
 Global
@@ -30,12 +28,6 @@ Global
 		{7FD42DF7-442E-479A-BA76-D0022F99702A}.Release|x64.Build.0 = Release|x64
 		{7FD42DF7-442E-479A-BA76-D0022F99702A}.Release|x86.ActiveCfg = Release|Win32
 		{7FD42DF7-442E-479A-BA76-D0022F99702A}.Release|x86.Build.0 = Release|Win32
-		{764224C3-E411-400E-8C95-70F04C2D47C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{764224C3-E411-400E-8C95-70F04C2D47C6}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{764224C3-E411-400E-8C95-70F04C2D47C6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{764224C3-E411-400E-8C95-70F04C2D47C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{764224C3-E411-400E-8C95-70F04C2D47C6}.Release|x64.ActiveCfg = Release|Any CPU
-		{764224C3-E411-400E-8C95-70F04C2D47C6}.Release|x86.ActiveCfg = Release|Any CPU
 		{5837595D-ACA9-485C-8E76-729040CE4B0B}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{5837595D-ACA9-485C-8E76-729040CE4B0B}.Debug|Any CPU.Build.0 = Debug|Win32
 		{5837595D-ACA9-485C-8E76-729040CE4B0B}.Debug|x64.ActiveCfg = Debug|x64
