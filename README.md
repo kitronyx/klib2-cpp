@@ -14,4 +14,7 @@ DEVELOPMENT ENVIRONMENT
 QUICK START
 -----------
 * Download or clone source code
-* Open apps/KLib2/KLib2/KLib2.sln
+* Open ./of_v0.10.0_vs2017_release/apps/KLib2/KLib2/KLib2.sln
+   * ./KLib2_Cpp/src/ofApp.cpp : Main event routine OpenFrameworks
+   * ./KLib2_Cpp/KLib2Cpp.h : KLib2 header file
+   * ./KLib2_Cpp/KLib2Cpp.cpp : KLib2 c++ code file
