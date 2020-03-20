@@ -48,12 +48,13 @@ public:
 	int** adc;
 	int row;
 	int col;
+	int count;
 
 	int getport() { return port; };
 	void setport(int _port) { port = _port; }
 	std::string getserver_ip() { return server_ip; }
 	void setserver_ip(std::string _server_ip) { server_ip = _server_ip; }
-	int getcount() { return packet->Count; }
+	int getcount() { return count; }
 
 	void printadc();
 	void printbyte();
