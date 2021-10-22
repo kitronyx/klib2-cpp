@@ -61,7 +61,7 @@ public:
 
 	bool start();
 	bool stop();
-	bool read();
+	int** read();
 
 	int** adc;
 	int row;

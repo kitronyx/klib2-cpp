@@ -91,11 +91,10 @@ bool KLib2Cpp::start()
 bool KLib2Cpp::stop()
 {
 	::closesocket(hSocket);
-
 	return true;
 }
 
-bool KLib2Cpp::read()
+int** KLib2Cpp::read()
 {
 	char x;
 	//// 데이터를 받는다. 에러가 발생하면 멈춘다.
@@ -104,7 +103,7 @@ bool KLib2Cpp::read()
 		// 에러 콘솔 출력
 		cout << "error" << endl;
 		stop();
-		return false;
+		return NULL;
 	}
 
 	int length = 0;
@@ -116,9 +115,10 @@ bool KLib2Cpp::read()
 		int npacket = recv(hSocket, buf, MAX_PACKET,0);
 
 		if (npacket == 0) {
+			memset(buf, 0, MAX_PACKET);			
 			zeroCount++;
 			if (zeroCount > 100000) {
-				return FALSE;
+				return NULL;
 			}
 		}
 		
@@ -143,7 +143,7 @@ bool KLib2Cpp::read()
 		}
 	}
 
-	return true;
+	return adc;
 }
 
 void KLib2Cpp::printadc()

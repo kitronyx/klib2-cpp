@@ -1,4 +1,4 @@
-﻿// ConsoleApplication6.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+// ConsoleApplication6.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
 //
 
 #include <iostream>
@@ -12,13 +12,23 @@ int main()
         klibObject->start();
 
         while (1) {
-            if (klibObject->read() == FALSE) {
+            int** _adc = klibObject->read();
+
+            if (_adc == NULL) {
                 // Communication stop
                 // 1. If ForceLAB2 or Snowforce3 interrupts API communication;
                 // 2. cpp program's TCP Client Error;
                 break;
             }
-            klibObject->printadc();
+            for (int i = 0; i < klibObject->row; ++i)
+            {
+                for (int j = 0; j < klibObject->col; ++j)
+                {
+                    printf("%d ", _adc[i][j]);
+                }
+                printf("\n");
+            }
+            printf("\n");
             //Sleep(1);
             system("cls");
         }
