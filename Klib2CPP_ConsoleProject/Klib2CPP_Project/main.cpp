@@ -31,6 +31,12 @@ int main()
             printf("\n");
             //Sleep(1);
             system("cls");
+
+			for (int i = 0; i < klibObject->row; ++i)
+			{
+				delete[] _adc[i];
+			}
+			delete[]_adc;
         }
 
         klibObject->stop();
