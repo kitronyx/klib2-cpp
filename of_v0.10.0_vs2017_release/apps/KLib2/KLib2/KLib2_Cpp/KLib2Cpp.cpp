@@ -46,19 +46,17 @@ void KLib2Cpp::creatarray()
 bool KLib2Cpp::start()
 {
 	tcp_client->setup(server_ip, port);
-	/*
-	do 
-	{
-		int npacket = tcp_client->receiveRawBytes(buf, MAX_PACKET);
-		packet = (COM_PACKET*)&buf;
-		
-	} while (memcmp(packet->Header, header, sizeof(packet->Header)) || memcmp(packet->Tail, tail, sizeof(packet->Tail)));
-	*/
+	
 	int length = 0;
+
+	// After reading with as large a buffer as possible at the time of the first transmission, 
+	// receive the row and col sizes, and later decide the buffer size and send & receive.
+	unsigned int startBufLength = 2<<24;
+	buf = new char[startBufLength];
 
 	while (1)
 	{
-		int npacket = tcp_client->receiveRawBytes(buf, MAX_PACKET);
+		int npacket = tcp_client->receiveRawBytes(buf, startBufLength);
 
 		int bufheader = 0;
 		if (0 == memcmp(buf, header, sizeof(header)))
@@ -72,6 +70,12 @@ bool KLib2Cpp::start()
 	memcpy(&row,  &buf[88], sizeof(row));
 	memcpy(&col, &buf[92], sizeof(col));
 	memcpy(&count, &buf[8], sizeof(count));
+
+	// row*col + etc
+	bufLength = row * col + 200;
+
+	delete(buf);
+	buf = new char[bufLength];
 
 	return true;
 }
@@ -90,20 +94,12 @@ bool KLib2Cpp::read()
 		stop();
 		return false;
 	}
-	/*
-	do
-	{
-		int npacket = tcp_client->receiveRawBytes(buf, MAX_PACKET);
-
-		packet = (COM_PACKET*)&buf;
-
-	} while (memcmp(packet->Header, header, sizeof(packet->Header)) || memcmp(packet->Tail, tail, sizeof(packet->Tail)));
-	*/
+	
 	int length = 0;
 
 	while(1)
 	{
-		int npacket = tcp_client->receiveRawBytes(buf, MAX_PACKET);
+		int npacket = tcp_client->receiveRawBytes(buf, bufLength);
 		
 		int bufheader = 0;
 		if (0 == memcmp(buf, header, sizeof(header)))
