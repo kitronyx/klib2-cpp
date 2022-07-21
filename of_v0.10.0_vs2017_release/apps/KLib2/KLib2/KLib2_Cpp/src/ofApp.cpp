@@ -12,7 +12,14 @@ void ofApp::setup(){
 	}
 	printf("Connected Server!");
 
-	drawofw = new DrawOFW(klib->row,klib->col,20);
+	// node size 
+	int size = 20;
+	float sizeOffset = klib->bufLength / (96*48);
+	if (sizeOffset >= 1) {
+		size =  (int)(20 / sizeOffset);
+	}
+
+	drawofw = new DrawOFW(klib->row,klib->col, size);
 }
 
 //--------------------------------------------------------------
