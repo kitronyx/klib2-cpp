@@ -15,20 +15,13 @@
 #include <conio.h>
 
 #include <WinSock2.h>
-#define MAX_PACKET 5000
 
 struct COM_PACKET {
 	CHAR Header[4];
 	INT Count;
-	CHAR Deviece_name[24];
-	CHAR sensor1_name[24];
-	CHAR sensor2_name[24];
 	INT NofDevice;
 	INT row;
 	INT col;
-	CHAR temp1[8];
-	BYTE adc[4800];
-	CHAR temp2[96];
 	CHAR Tail[4];
 };
 
@@ -44,7 +37,7 @@ private:
 	COM_PACKET* packet;
 	std::string server_ip;
 	int port;
-	char buf[MAX_PACKET];
+	char* buf;
 
 	char header[4];
 	char tail[4];
@@ -67,6 +60,7 @@ public:
 	int row;
 	int col;
 	int count;
+	int bufLength;
 
 	int getport() { return port; };
 	void setport(int _port) { port = _port; }

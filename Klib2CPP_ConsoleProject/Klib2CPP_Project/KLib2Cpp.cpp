@@ -60,15 +60,15 @@ void KLib2Cpp::creatarray()
 
 bool KLib2Cpp::start()
 {
+	buf = new char[2 << 24];
 	while (1)
 	{
 		setupTCPIP();
-
-		char cBuff = 'B';
-		::send(hSocket, &cBuff, sizeof(cBuff), 0);
-
 		int length = 0;
-		int npacket = ::recv(hSocket, buf, MAX_PACKET, 0);
+
+		delete(buf);
+		buf = new char[2 << 24];
+		int npacket = ::recv(hSocket, buf, 2<<24, 0);
 
 		//int npacket = tcp_client->receiveRawBytes(buf, MAX_PACKET);
 
@@ -84,6 +84,11 @@ bool KLib2Cpp::start()
 	memcpy(&row,  &buf[88], sizeof(row));
 	memcpy(&col, &buf[92], sizeof(col));
 	memcpy(&count, &buf[8], sizeof(count));
+
+	bufLength = row * col + 200;
+	delete(buf);
+	buf = new char[bufLength];
+		
 
 	return true;
 }
@@ -112,10 +117,10 @@ int** KLib2Cpp::read()
 
 	while(1)
 	{
-		int npacket = recv(hSocket, buf, MAX_PACKET,0);
+		int npacket = recv(hSocket, buf, bufLength,0);
 
 		if (npacket == 0) {
-			memset(buf, 0, MAX_PACKET);			
+			memset(buf, 0, bufLength);
 			zeroCount++;
 			if (zeroCount > 100000) {
 				return NULL;
