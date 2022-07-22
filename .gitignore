@@ -320,3 +320,8 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+Klib2CPP_ConsoleProject/Klib2CPP_Project/x64/Debug/vc143.idb
+Klib2CPP_ConsoleProject/x64/Debug/KLib2_CPP.exe
+*.recipe
+Klib2CPP_ConsoleProject/Klib2CPP_Project/x64/Debug/KLib2_CPP.tlog/CL.command.1.tlog
+*.tlog

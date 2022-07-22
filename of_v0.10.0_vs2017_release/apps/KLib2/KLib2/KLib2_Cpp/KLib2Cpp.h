@@ -38,6 +38,8 @@ public:
 	bool stop();
 	bool read();
 
+	void deleteAdc();
+
 	int** adc;
 	int row;
 	int col;

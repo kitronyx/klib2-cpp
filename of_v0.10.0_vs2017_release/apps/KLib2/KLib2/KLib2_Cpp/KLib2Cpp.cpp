@@ -74,8 +74,9 @@ bool KLib2Cpp::start()
 	// row*col + etc
 	bufLength = row * col + 200;
 
-	delete(buf);
+	delete[](buf);
 	buf = new char[bufLength];
+	creatarray();
 
 	return true;
 }
@@ -112,6 +113,7 @@ bool KLib2Cpp::read()
 
 	memcpy(&count, &buf[8], sizeof(count));
 
+	deleteAdc();
 	adc = new int*[row];
 	for (int i = 0; i < row; ++i)
 	{
@@ -120,9 +122,17 @@ bool KLib2Cpp::read()
 		{
 			adc[i][j] = (int)buf[i*col+j + 96];
 		}
-	}
-
+	}	
 	return true;
+}
+
+void KLib2Cpp::deleteAdc() {
+
+	for (int i = 0; i < row; ++i)
+	{
+		delete[](adc[i]);
+	}
+	delete[](adc);
 }
 
 void KLib2Cpp::printadc()
