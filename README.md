@@ -18,9 +18,6 @@ QUICK START
    * /KLib2_Cpp/src/ofApp.cpp : Main event routine OpenFrameworks
    * /KLib2_Cpp/KLib2Cpp.h : KLib2 header file
    * /KLib2_Cpp/KLib2Cpp.cpp : KLib2 c++ code file
-<span style="color:red">
-*If the size of the sensor used exceeds 5000, 
- you must set change MAX_PACKET (KLib2Cpp.h, 5 line) to be larger than the sensor size. </span>
 
 
 
