@@ -1,5 +1,5 @@
 # klib2-cpp  [OpenFrameWorks]
-Max FPS : 15
+Max FPS(Frames per second) : 15
 
 ![Original](img/KLib2_Cpp_Demo.png)
 
