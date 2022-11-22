@@ -7,23 +7,13 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetworkUtils.cpp">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPClient.cpp">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPManager.cpp">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPServer.cpp">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPManager.cpp">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClCompile>
     <ClCompile Include="KLib2Cpp.cpp" />
     <ClCompile Include="DrawOFW.cpp" />
+    <ClCompile Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetworkUtils.cpp" />
+    <ClCompile Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPClient.cpp" />
+    <ClCompile Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPServer.cpp" />
+    <ClCompile Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -43,32 +33,16 @@
     <ClInclude Include="src\ofApp.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetwork.h">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetworkUtils.h">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPClient.h">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPManager.h">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPServer.h">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPSettings.h">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPManager.h">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPSettings.h">
-      <Filter>addons\ofxNetwork\src</Filter>
-    </ClInclude>
     <ClInclude Include="KLib2Cpp.h" />
     <ClInclude Include="DrawOFW.h" />
+    <ClInclude Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetwork.h" />
+    <ClInclude Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetworkUtils.h" />
+    <ClInclude Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPClient.h" />
+    <ClInclude Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPManager.h" />
+    <ClInclude Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPServer.h" />
+    <ClInclude Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPSettings.h" />
+    <ClInclude Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPManager.h" />
+    <ClInclude Include="..\..\..\..\..\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPSettings.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />
