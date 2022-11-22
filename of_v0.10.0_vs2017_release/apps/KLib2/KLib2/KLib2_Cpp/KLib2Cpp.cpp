@@ -72,7 +72,7 @@ bool KLib2Cpp::start()
 	memcpy(&count, &buf[8], sizeof(count));
 
 	// row*col + etc
-	bufLength = row * col + 200;
+	bufLength = row * col + 100;
 
 	delete[](buf);
 	buf = new char[bufLength];
@@ -106,7 +106,8 @@ bool KLib2Cpp::read()
 		if (0 == memcmp(buf, header, sizeof(header)))
 		{
 			memcpy(&length, &buf[4], sizeof(length));
-			if(0 == memcmp(&buf[length + 4], tail, sizeof(tail)))
+			if(length == bufLength - 8 && 0 == memcmp(&buf[length + 4], tail, sizeof(tail)))
+			
 				break;
 		}
 	}
@@ -120,7 +121,7 @@ bool KLib2Cpp::read()
 		adc[i] = new int[col];
 		for (int j = 0; j < col; ++j)
 		{
-			adc[i][j] = (int)buf[i*col+j + 96];
+			adc[i][j] = (int)(unsigned char)buf[i*col+j + 96];
 		}
 	}	
 	return true;

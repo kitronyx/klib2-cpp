@@ -35,7 +35,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-	int scale = 2;
+	int scale = 1;
 	if (klib->read())
 	{
 		drawofw->draw(klib->adc, scale);
@@ -44,6 +44,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+
 }
 
 //--------------------------------------------------------------
