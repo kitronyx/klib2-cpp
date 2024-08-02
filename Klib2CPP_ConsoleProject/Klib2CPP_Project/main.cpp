@@ -28,7 +28,7 @@ int main()
                 delete[]_adc;
             }
             else {
-                double** _adc = klibObject->forceRead();
+                double** forceData = klibObject->forceRead();
 
                 klibObject->printForceData();
 
@@ -38,9 +38,9 @@ int main()
 
                 for (int i = 0; i < klibObject->row; ++i)
                 {
-                    delete[] _adc[i];
+                    delete[] forceData[i];
                 }
-                delete[]_adc;
+                delete[]forceData;
             }
             
         }
