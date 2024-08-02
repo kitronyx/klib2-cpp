@@ -42,6 +42,7 @@ private:
 	char header[4];
 	char tail[4];
 
+
 	void init();
 	void creatarray();
 	void setupTCPIP();
@@ -55,10 +56,14 @@ public:
 	bool start();
 	bool stop();
 	int** read();
-
 	int** adc;
+
+	double** forceRead();
+	double** forceData;
+
 	int row;
 	int col;
+	std::string dataType;
 	int count;
 	int bufLength;
 
@@ -69,6 +74,7 @@ public:
 	int getcount() { return count; }
 
 	void printadc();
+	void printForceData();
 	void printbyte();
 };
 

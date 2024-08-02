@@ -12,31 +12,37 @@ int main()
         klibObject->start();
 
         while (1) {
-            int** _adc = klibObject->read();
+            if (klibObject->dataType == "Raw") {
+                int** _adc = klibObject->read();
 
-            if (_adc == NULL) {
-                // Communication stop
-                // 1. If ForceLAB2 or Snowforce3 interrupts API communication;
-                // 2. cpp program's TCP Client Error;
-                break;
-            }
-            for (int i = 0; i < klibObject->row; ++i)
-            {
-                for (int j = 0; j < klibObject->col; ++j)
-                {
-                    printf("%d ", _adc[i][j]);
-                }
+                klibObject->printadc();
+
                 printf("\n");
-            }
-            printf("\n");
-            //Sleep(1);
-            system("cls");
+                //Sleep(1);
+                system("cls");
 
-			for (int i = 0; i < klibObject->row; ++i)
-			{
-				delete[] _adc[i];
-			}
-			delete[]_adc;
+                for (int i = 0; i < klibObject->row; ++i)
+                {
+                    delete[] _adc[i];
+                }
+                delete[]_adc;
+            }
+            else {
+                double** _adc = klibObject->forceRead();
+
+                klibObject->printForceData();
+
+                printf("\n");
+                //Sleep(1);
+                system("cls");
+
+                for (int i = 0; i < klibObject->row; ++i)
+                {
+                    delete[] _adc[i];
+                }
+                delete[]_adc;
+            }
+            
         }
 
         klibObject->stop();
