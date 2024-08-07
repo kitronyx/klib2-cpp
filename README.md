@@ -10,7 +10,7 @@ DEVELOPMENT ENVIRONMENT
 * OpenFrameworks 0.1.0 (included in this repository): OpenFrameworks folder should be at `c:\of_v10.0_vs_release\`
   * Download: http://openframeworks.cc/download
 * Snowforce 3
-   * https://github.com/kitronyx/snowforce3/blob/master/Snowforce3.0_2022.02.17.exe
+   * https://github.com/kitronyx/SnapshotAnalyzer
    
 QUICK START
 -----------
@@ -34,7 +34,7 @@ DEVELOPMENT ENVIRONMENT
 -----------------------
 * Visual Studio 2017
 * Snowforce 3
-   * https://github.com/kitronyx/snowforce3/blob/master/Snowforce3.0_2022.02.17.exe
+   * https://github.com/kitronyx/SnapshotAnalyzer
    
 QUICK START
 -----------
