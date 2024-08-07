@@ -19,3 +19,15 @@ void DrawOFW::draw(int ** frame, int scale)
 		}
 	}
 }
+void DrawOFW::drawForce(double** frame, int scale)
+{
+	for (int i = 0; i < nrow; i++)
+	{
+		for (int j = 0; j < ncol; j++)
+		{
+			ofSetColor(0, (int)(frame[i][j] * scale), 0);
+			ofFill();
+			ofDrawRectangle(j * size, i * size, size, size);
+		}
+	}
+}

@@ -39,12 +39,14 @@ public:
 	bool read();
 
 	void deleteAdc();
+	void deleteForce();
 
 	int** adc;
 	int row;
 	int col;
 	int count;
 	int bufLength;
+	std::string dataType;
 
 	int getport() { return port; };
 	void setport(int _port) { port = _port; }
@@ -52,8 +54,9 @@ public:
 	void setserver_ip(std::string _server_ip) { server_ip = _server_ip; }
 	int getcount() { return count; }
 
-	void printadc();
 	void printbyte();
+
+	double** forceData;
 };
 
 #endif

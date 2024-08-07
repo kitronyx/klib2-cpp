@@ -24,13 +24,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	if (!(klib->read()))
-	{
-		printf("TCP/IP Disconnect!\n");
-		return;
-	}
-	//klib->printadc();
-	printf("Count : %d\n", klib->getcount());
+	
 }
 
 //--------------------------------------------------------------
@@ -38,7 +32,17 @@ void ofApp::draw(){
 	int scale = 1;
 	if (klib->read())
 	{
-		drawofw->draw(klib->adc, scale);
+		if (klib->dataType == "Raw") 
+		{
+			drawofw->draw(klib->adc, scale);
+		}
+		else {
+			drawofw->drawForce(klib->forceData, 5);
+		}
+	}
+	else {
+		printf("TCP/IP Disconnect!\n");
+		return;
 	}
 }
 

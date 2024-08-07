@@ -13,6 +13,7 @@ private:
 public:
 	DrawOFW(int nrow, int ncol, int size);
 	void draw(int **frame, int scale);
+	void drawForce(double** frame, int scale);
 };
 
 #endif

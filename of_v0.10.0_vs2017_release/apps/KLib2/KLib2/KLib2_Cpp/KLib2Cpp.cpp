@@ -1,30 +1,30 @@
 #include "KLib2Cpp.h"
 
-KLib2Cpp::KLib2Cpp()
-{
-	tcp_client = new ofxTCPClient();
-	server_ip = "127.0.0.1";
-	port = 3800;
-	count = 0;
-
+KLib2Cpp::KLib2Cpp() : tcp_client(new ofxTCPClient()),
+						server_ip("127.0.0.1"),
+						port(3800),
+						count(0),
+						buf(nullptr),
+						adc(nullptr),
+						forceData(nullptr) {
 	memset(&header, 0x7e7e7e7e, sizeof(header));
 	memset(&tail, 0x81818181, sizeof(tail));
 }
 
-KLib2Cpp::KLib2Cpp(const char* _server_ip, int _port) : server_ip(_server_ip), port(_port)
-{
+KLib2Cpp::KLib2Cpp(const char* _server_ip, int _port)
+	: server_ip(_server_ip), port(_port), count(0), buf(nullptr), adc(nullptr), forceData(nullptr) {
 	tcp_client = new ofxTCPClient();
 	memset(&header, 0x7e7e7e7e, sizeof(header));
 	memset(&tail, 0x81818181, sizeof(tail));
-	count = 0;
 }
 
 KLib2Cpp::~KLib2Cpp()
 {
-	if(tcp_client->isConnected())
-		tcp_client->close();
-	tcp_client->~ofxTCPClient();
+	stop();
 	delete tcp_client;
+	delete[] buf;
+	deleteAdc();
+	deleteForce();
 }
 
 void KLib2Cpp::init()
@@ -36,21 +36,22 @@ void KLib2Cpp::init()
 
 void KLib2Cpp::creatarray()
 {
-	adc = new int*[row];
+	adc = new int* [row];
+	forceData = new double* [row];
 	for (int i = 0; i < row; i++)
 	{
 		adc[i] = new int[col];
+		forceData[i] = new double[col];
 	}
 }
 
 bool KLib2Cpp::start()
 {
-	tcp_client->setup(server_ip, port);
+	if (!tcp_client->setup(server_ip, port)) {
+		return false;
+	}
 	
 	int length = 0;
-
-	// After reading with as large a buffer as possible at the time of the first transmission, 
-	// receive the row and col sizes, and later decide the buffer size and send & receive.
 	unsigned int startBufLength = 2<<24;
 	buf = new char[startBufLength];
 
@@ -74,8 +75,16 @@ bool KLib2Cpp::start()
 	// row*col + etc
 	bufLength = row * col + 100;
 
-	delete[](buf);
+	delete[] buf;
 	buf = new char[bufLength];
+	if (bufLength < length) {
+		dataType = "Force";
+		bufLength = row * col * 8 + 100;
+	}
+	else {
+		dataType = "Raw";
+	}
+
 	creatarray();
 
 	return true;
@@ -101,53 +110,66 @@ bool KLib2Cpp::read()
 	while(1)
 	{
 		int npacket = tcp_client->receiveRawBytes(buf, bufLength);
-		
-		int bufheader = 0;
+
+		if (npacket <= 0) {
+			continue;
+		}
+
 		if (0 == memcmp(buf, header, sizeof(header)))
 		{
 			memcpy(&length, &buf[4], sizeof(length));
-			if(length == bufLength - 8 && 0 == memcmp(&buf[length + 4], tail, sizeof(tail)))
-			
+			if (0 == memcmp(&buf[length + 4], tail, sizeof(tail))) 
+			{
 				break;
+			}
 		}
 	}
 
 	memcpy(&count, &buf[8], sizeof(count));
 
-	deleteAdc();
-	adc = new int*[row];
-	for (int i = 0; i < row; ++i)
-	{
-		adc[i] = new int[col];
-		for (int j = 0; j < col; ++j)
+	if (dataType == "Raw") {
+		deleteAdc();
+		adc = new int* [row];
+		for (int i = 0; i < row; ++i)
 		{
-			adc[i][j] = (int)(unsigned char)buf[i*col+j + 96];
+			adc[i] = new int[col];
+			for (int j = 0; j < col; ++j)
+			{
+				adc[i][j] = (int)(unsigned char)buf[i * col + j + 96];
+			}
 		}
-	}	
+	}
+	else {
+		deleteForce();
+		forceData = new double* [row];
+		for (int i = 0; i < row; ++i)
+		{
+			forceData[i] = new double[col];
+			for (int j = 0; j < col; ++j)
+			{
+				std::memcpy(&forceData[i][j], &buf[(i * col + j) * 8 + 96], 8);
+			}
+		}
+	}
 	return true;
 }
 
 void KLib2Cpp::deleteAdc() {
-
-	for (int i = 0; i < row; ++i)
+	for (int i = 0; i < row; ++i) 
 	{
-		delete[](adc[i]);
+		delete[] adc[i];
 	}
-	delete[](adc);
+	delete[] adc;
 }
 
-void KLib2Cpp::printadc()
-{
-	for (int i = 0; i < row; ++i)
+void KLib2Cpp::deleteForce() {
+	for (int i = 0; i < row; ++i) 
 	{
-		for (int j = 0; j < col; ++j)
-		{
-			printf("%d ", adc[i][j]);
-		}
-		printf("\n");
+		delete[] forceData[i];
 	}
-	printf("\n");
+	delete[] forceData;
 }
+
 
 void KLib2Cpp::printbyte()
 {
