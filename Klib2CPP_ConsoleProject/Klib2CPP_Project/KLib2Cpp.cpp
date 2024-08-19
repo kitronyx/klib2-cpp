@@ -138,7 +138,14 @@ int** KLib2Cpp::read()
 		int bufheader = 0;
 		if (0 == memcmp(buf, header, sizeof(header)))
 		{
-			memcpy(&length, &buf[4], sizeof(length));
+			try 
+			{
+				memcpy(&length, &buf[4], sizeof(length));
+			}
+			catch(const std::runtime_error& e)
+			{
+				continue;
+			}
 			if(0 == memcmp(&buf[length + 4], tail, sizeof(tail)))
 				break;
 		}
