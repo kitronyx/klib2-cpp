@@ -56,7 +56,7 @@ This project is a C++-based system that receives sensor data over TCP/IP and vis
 > **For Visualization (OpenFrameworks Mode)**
 
 1. Download or clone source code **klib2-cpp  [OpenFrameWorks]**
-2. Open `KLib2.sln` inside `apps/KLib2/KLib2/` with Visual Studio 2017  
+2. Open `KLib2.sln` inside `.\apps\KLib2\KLib2\` with Visual Studio 2017  
 3. Build and run the OpenFrameworks app  
 
 ---
@@ -64,18 +64,18 @@ This project is a C++-based system that receives sensor data over TCP/IP and vis
 ## Console Build Instructions
 
 1. Download or clone source code **klib2-cpp  [Console Project]**
-2. /Klib2CPP_ConsoleProject\Klib2CPP_Project/KLib2Cpp.h : KLib2 header file
-3. /Klib2CPP_ConsoleProject\Klib2CPP_Project/KLib2Cpp.cpp : KLib2 c++ code file
+2. `.\Klib2CPP_ConsoleProject\Klib2CPP_Project\KLib2Cpp.h` : KLib2 header file
+3. `.\Klib2CPP_ConsoleProject\Klib2CPP_Project\KLib2Cpp.cpp` : KLib2 c++ code file
 
 ---
 
 ## openFrameworks Build Instructions
 
 1. Download or clone source code **klib2-cpp  [OpenFrameWorks]**
-2. Open ./of_v0.10.0_vs2017_release/apps/KLib2/KLib2/KLib2.sln
-   - /KLib2_Cpp/src/ofApp.cpp : Main event routine OpenFrameworks
-   - /KLib2_Cpp/KLib2Cpp.h : KLib2 header file
-   - /KLib2_Cpp/KLib2Cpp.cpp : KLib2 c++ code file
+2. Open `.\of_v0.10.0_vs2017_release\apps\KLib2\KLib2\KLib2.sln`
+   - `.\KLib2_Cpp\src/ofApp.cpp` : Main event routine OpenFrameworks
+   - `.\KLib2_Cpp\KLib2Cpp.h` : KLib2 header file
+   - `.\KLib2_Cpp\KLib2Cpp.cpp` : KLib2 c++ code file
 
 ---
 
@@ -201,15 +201,15 @@ For questions or support, please visit:
 
 ## 퀵스타트
 
-### 콘솔 모드드
+### 콘솔 모드
 
 ![Original](img/KLib2_Cpp_Console_Demo.png)
 
 > **3단계로 빠르게 시작하기 (콘솔 모드)**
 
-1. **klib2-cpp [Console Project]** 소스 코드 다운로드 또는 클론하고고 Visual Studio 2017로 엽니다
-2. 이 저장소를 클론하고 콘솔 프로젝트를 
-3. 솔루션을 빌드하고 `main.cpp`를 실행합니다  
+1. **klib2-cpp [Console Project]** 소스 코드 다운로드 또는 클론하고고 Visual Studio 2017로 엽니다.
+2. 콘솔 프로젝트를 클론 합니다.
+3. 솔루션을 빌드하고 `main.cpp`를 실행합니다.
 
 ### openFrameworks 모드
 
@@ -217,25 +217,25 @@ For questions or support, please visit:
 
 > **시각화 실행 (OpenFrameworks 모드)**
 
-1.  **klib2-cpp [OpenFrameworks]** 소스 코드 다운로드 또는 클론하고고 Visual Studio 2017로 엽니다
-2. `apps/KLib2/KLib2/` 경로의 `KLib2.sln` 솔루션 파일을 엽니다  
-3. 솔루션을 빌드하고 실행합니다
+1.  **klib2-cpp [OpenFrameworks]** 소스 코드 다운로드 또는 클론하고고 Visual Studio 2017로 엽니다.
+2. `.\apps\KLib2\KLib2\` 경로의 `KLib2.sln` 솔루션 파일을 엽니다.
+3. 솔루션을 빌드하고 실행합니다.
 
 ---
 
 ### 콘솔 빌드 방법
 
 1. 소스 코드 다운로드 또는 클론: **klib2-cpp [Console Project]**
-2. `/Klib2CPP_ConsoleProject/Klib2CPP_Project/KLib2Cpp.h`: 헤더 파일
-3. `/Klib2CPP_ConsoleProject/Klib2CPP_Project/KLib2Cpp.cpp`: 구현 파일
+2. `.\Klib2CPP_ConsoleProject\Klib2CPP_Project\KLib2Cpp.h`: 헤더 파일
+3. `.\Klib2CPP_ConsoleProject\Klib2CPP_Project\KLib2Cpp.cpp`: 구현 파일
 
 ### openFrameworks 빌드 방법
 
 1. 소스 코드 다운로드 또는 클론: **klib2-cpp [OpenFrameworks]**
-2. `./of_v0.10.0_vs2017_release/apps/KLib2/KLib2/KLib2.sln` 열기
-   - `/KLib2_Cpp/src/ofApp.cpp`: OpenFrameworks 메인 루프
-   - `/KLib2_Cpp/KLib2Cpp.h`: 헤더 파일
-   - `/KLib2_Cpp/KLib2Cpp.cpp`: 구현 파일
+2. `.\of_v0.10.0_vs2017_release\apps\KLib2\KLib2\KLib2.sln` 열기
+   - `.\KLib2_Cpp\src\ofApp.cpp`: OpenFrameworks 메인 루프
+   - `.\KLib2_Cpp\KLib2Cpp.h`: 헤더 파일
+   - `.\KLib2_Cpp\KLib2Cpp.cpp`: 구현 파일
 
 ---
 
