@@ -126,7 +126,7 @@ void DrawOFW::draw(int ** frame, int scale) {
 | `getport()` | Get current port number |
 | `getserver_ip()` | Get current server IP |
 | `getcount()` | Get number of received packets |
-| `deleteAdc()` | Free internal ADC memory |
+| `deleteAdc()` | Free internal data memory |
 
 ### DrawOFW
 
@@ -286,7 +286,7 @@ void DrawOFW::draw(int ** frame, int scale) {
 | `getport()` | 현재 포트 반환 |
 | `getserver_ip()` | 현재 IP 반환 |
 | `getcount()` | 수신된 패킷 수 반환 |
-| `deleteAdc()` | 내부 ADC 메모리 해제 |
+| `deleteAdc()` | 내부 데이터 메모리 해제 |
 
 ### DrawOFW
 
